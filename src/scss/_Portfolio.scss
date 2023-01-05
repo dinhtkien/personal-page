@@ -1,0 +1,40 @@
+@import './utils';
+
+#portfolio-section {
+    @media all and (min-width: $sm-breakpoint) {
+        .container-fluid {
+            @include getContainerFluidForMobile(60px);
+        }
+    }
+
+    .container-fluid {
+        .card {
+            padding: 2% 20%;
+            border: none;
+
+            h4,
+            p {
+                text-align: center;
+            }
+        }
+
+        .row {
+            @media (min-width:$sm-breakpoint) {
+                padding: 0% 25%;
+            }
+            display: flex;
+            justify-content: space-between;
+
+            button {
+                width: auto;
+                background: linear-gradient(90deg, #0075ff, transparent) #2196f3;
+                color: #fff;
+                border-radius: 15px;
+                transition: background-color 1s;
+                &:hover {
+                    background-color: #e91e63;
+                }
+            }
+        }
+    }
+}

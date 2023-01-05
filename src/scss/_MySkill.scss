@@ -1,0 +1,34 @@
+@import './utils';
+#myskill-section {
+    @media all and (min-width: $sm-breakpoint) {
+        .container-fluid {
+            @include getContainerFluidForMobile($padding:5% 20%);
+            .row {
+                .col-sm-6 {
+                    h4 {
+                        text-align: center;
+                    }
+                    p {
+                        line-height: $lh;
+                        text-align: center;
+                    }
+                    h6 {
+                        display: flex;
+                        justify-content: space-between;
+                    }
+                    .progress {
+                        .progress-bar {
+                            background: linear-gradient(90deg, #0075ff, transparent) #2196f3;
+                            transition: background-color 1s;
+                            color: #fff;
+                            &:hover,&:focus {
+                                background: #e91e63;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+}

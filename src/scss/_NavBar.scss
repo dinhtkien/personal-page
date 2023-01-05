@@ -1,0 +1,14 @@
+@import './utils';
+#navbarid {
+    background: linear-gradient(to right, #6f2cf3, #8047f3);
+    @media all and (min-width: $sm-breakpoint) {
+        .container-fluid {
+            @include getContainerFluidForMobile(60px);
+        }
+    }
+    .nav-link:hover {
+        transition: 0.25s ease;
+        @include getTextBrightenStyle;
+    }
+
+}

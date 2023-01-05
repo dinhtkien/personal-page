@@ -1,0 +1,56 @@
+@import './utils';
+
+#service-section {
+    @media all and (min-width: $sm-breakpoint) {
+        .container-fluid {
+            @include getContainerFluidForMobile($padding:5% 20%);
+        }
+    }
+
+    background: #f0f0f0;
+
+    .container-fluid {
+        background: transparent;
+        line-height: $lh;
+        p {
+            line-height: $lh;
+        }
+
+        .row {
+            .col-sm-6.col-md-4 {
+                display: flex;
+                padding: 2%;
+                .card {
+                    &:hover {
+                        i {
+                            transition: 0.1s ease;
+                            // box-shadow: 1px 1px 15px #00bbff, -1px 1px 15px #00bbff,
+                            //         -1px -1px 15px #00bbff, 1px -1px 15px #00bbff;
+                            box-shadow: 0px 0px 30px #00bbff;
+                            
+                        }
+                    }
+                    p {
+                        line-height: $lh;
+                    }
+                    padding: 5%;
+                    @include getBoxShadow();
+                    display: inline-block;
+                    text-align: center;
+
+                    i {
+                        font-size: 3rem;
+                        color: #ffffff;
+                        background: #00c6ff;
+                        padding: 5%;
+                        margin: 8%;
+                    }
+
+                    h5 {
+                        margin-bottom: 8%;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,74 @@
+@import './utils';
+
+#detailed-about-me {
+    background: #fff;
+
+    @media all and (min-width: $sm-breakpoint) {
+        .container-fluid {
+            @include getContainerFluidForMobile();
+        }
+        
+    }
+
+    .container-fluid {
+        display: flex;
+        align-items: start;
+        padding: 5% 20%;
+        .row {
+            .col-sm-6 {
+                padding: 1% 0%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .card {
+                    border: none;
+                    width: 80%;
+                    h4 {
+                        font-size: 1.4rem;
+                    }
+
+                    h5 {
+                        font-size: 1.2rem;
+                    }
+
+                    p {
+
+                        a,
+                        a:visited,
+                        a:active {
+                            @include getHyperLinkStyle("vistedandactive", rgb(47, 148, 195));
+                        }
+
+                        a:hover {
+                            @include getHyperLinkStyle("hover");
+                        }
+
+                        a:after {
+                            @include getHyperLinkStyle("after");
+                        }
+
+                        a:hover:after {
+                            @include getHyperLinkStyle("hoverafter");
+                        }
+                    }
+                    .cust-button {
+                        height: 40px;
+                        width: 150px;
+                        background: linear-gradient(to right,#0073FF,#00bbff);
+                        border-radius: 20px;
+                        border-width: 0;
+                        color: #fff;
+                        transition: 0.5s ease;
+                        &:hover {
+                            span {
+                                text-shadow: 0px 0px ;
+                            }
+                            box-shadow:0px 15px 15px #00bbff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

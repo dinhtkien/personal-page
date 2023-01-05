@@ -1,0 +1,51 @@
+@import './utils';
+
+#aboutme {
+    background: linear-gradient(60deg, #18468a, #736c4a, #8047f3);
+
+    @media all and (min-width: $sm-breakpoint) {
+        .container-fluid {
+            @include getContainerFluidForMobile($height:120vh,$padding: 5% 5%);
+        }
+    }
+
+    .container-fluid {
+        .row {
+            justify-content: center;
+            .col-sm-6 {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .card {
+                    background: transparent;
+                    border-width: 0px 0px 0px 5px;
+                    border-radius: 0%;
+                    border-left-color: #0079ff;
+                }
+
+                img {
+                    opacity: 0.2;
+                    width: 80%;
+                }
+
+                a,
+                a:visited,
+                a:active {
+                    @include getHyperLinkStyle("vistedandactive",rgb(255, 255, 255));
+                }
+                
+                a:hover {
+                    @include getHyperLinkStyle("hover");
+                }
+
+                a:after {
+                    @include getHyperLinkStyle("after");
+                }
+
+                a:hover:after {
+                    @include getHyperLinkStyle("hoverafter");
+                }
+            }
+        }
+    }
+}
