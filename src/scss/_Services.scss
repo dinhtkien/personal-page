@@ -6,8 +6,13 @@
             @include getContainerFluidForMobile($padding:5% 20%);
         }
     }
+    @media all and (max-width: $sm-breakpoint) {
+        .container-fluid {
+            @include getContainerFluidForMobile($padding: 5% 0%);
+        }
+    }
 
-    background: #f0f0f0;
+    background: #f7f7f7;
 
     .container-fluid {
         background: transparent;
@@ -17,9 +22,10 @@
         }
 
         .row {
+            margin: 0%; 
             .col-sm-6.col-md-4 {
                 display: flex;
-                padding: 2%;
+                padding-top:5%;
                 .card {
                     &:hover {
                         i {

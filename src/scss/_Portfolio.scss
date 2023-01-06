@@ -3,28 +3,35 @@
 #portfolio-section {
     @media all and (min-width: $sm-breakpoint) {
         .container-fluid {
-            @include getContainerFluidForMobile(60px);
+            @include getContainerFluidForMobile($padding: 5% 20%);
         }
     }
-
+    @media all and (max-width: $sm-breakpoint) {
+        .container-fluid {
+            @include getContainerFluidForMobile($padding: 5% 0%);
+        }
+    }
     .container-fluid {
-        .card {
+        background:#f7f7f7;
+        &>.card {
             padding: 2% 20%;
             border: none;
-
+            background: transparent;
             h4,
             p {
+                letter-spacing: $ls;
                 text-align: center;
             }
         }
 
-        .row {
+        .row.button-row {
+            margin: 0%; 
             @media (min-width:$sm-breakpoint) {
-                padding: 0% 25%;
+                padding: 2% 25%;
             }
+            padding-bottom: 2%;
             display: flex;
             justify-content: space-between;
-
             button {
                 width: auto;
                 background: linear-gradient(90deg, #0075ff, transparent) #2196f3;
@@ -33,6 +40,22 @@
                 transition: background-color 1s;
                 &:hover {
                     background-color: #e91e63;
+                }
+            }
+        }
+        .row {
+            margin: 0%; 
+            .col-sm-6.col-md-4
+            {
+                padding-top:5%;
+                .card {
+                    @include getBoxShadow();
+                    padding:5%;
+                    background: #fff;
+                    h6, p {
+                        text-align: center;
+                        letter-spacing: $ls;
+                    }
                 }
             }
         }

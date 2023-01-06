@@ -3,14 +3,26 @@
 }
 @media all and (min-width: 576px) {
   #aboutme .container-fluid {
-    padding: 5% 5%;
+    padding: 5% 20%;
     height: 120vh;
   }
 }
+@media all and (max-width: 576px) {
+  #aboutme .container-fluid {
+    padding: 5% 0%;
+    height: auto;
+  }
+}
+#aboutme .container-fluid {
+  display: flex;
+}
 #aboutme .container-fluid .row {
+  margin: 0%;
+  overflow: hidden;
   justify-content: center;
 }
 #aboutme .container-fluid .row .col-sm-6 {
+  padding-top: 5%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,7 +35,7 @@
 }
 #aboutme .container-fluid .row .col-sm-6 img {
   opacity: 0.2;
-  width: 80%;
+  width: 90%;
 }
 #aboutme .container-fluid .row .col-sm-6 a,
 #aboutme .container-fluid .row .col-sm-6 a:visited,
@@ -56,29 +68,136 @@
 }
 
 @media all and (min-width: 576px) {
+  #contact-section .container-fluid {
+    padding: 5% 20%;
+    height: auto;
+  }
+}
+@media all and (max-width: 576px) {
+  #contact-section .container-fluid {
+    padding: 5% 0%;
+    height: auto;
+  }
+}
+#contact-section .container-fluid > .card.static-card {
+  padding: 3% 20%;
+  border: none;
+  background-color: transparent;
+}
+#contact-section .container-fluid > .card.static-card h2, #contact-section .container-fluid > .card.static-card p {
+  text-align: center;
+}
+#contact-section .container-fluid > .card.float-card {
+  border: none;
+  padding: 3%;
+  box-shadow: 0px 0px 20px rgb(169, 169, 169);
+}
+#contact-section .container-fluid > .card.float-card .row .col-sm-6 {
+  padding-top: 5%;
+}
+#contact-section .container-fluid > .card.float-card .row .col-sm-6 .personal-infor {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+}
+#contact-section .container-fluid > .card.float-card .row .col-sm-6 .personal-infor i {
+  color: #00c6ff;
+  font-size: 2rem;
+}
+#contact-section .container-fluid > .card.float-card .row .col-sm-6 .personal-infor p {
+  margin-left: 5%;
+}
+#contact-section .container-fluid > .card.float-card .row .col-sm-6 input, #contact-section .container-fluid > .card.float-card .row .col-sm-6 textarea, #contact-section .container-fluid > .card.float-card .row .col-sm-6 .cust-button {
+  display: block;
+  width: 100%;
+  height: 50px;
+  margin-top: 15px;
+  border-radius: 5px;
+}
+#contact-section .container-fluid > .card.float-card .row .col-sm-6 .cust-button {
+  height: 40px;
+  width: 150px;
+  background: linear-gradient(to right, #0073FF, #00bbff);
+  border-radius: 20px;
+  border-width: 0;
+  color: #fff;
+  transition: 0.5s ease;
+}
+#contact-section .container-fluid > .card.float-card .row .col-sm-6 .cust-button:hover {
+  box-shadow: 0px 0px 15px #00bbff;
+}
+
+#lastestnews-section {
+  background: #f7f7f7;
+}
+@media all and (min-width: 576px) {
+  #lastestnews-section .container-fluid {
+    padding: 5% 20%;
+    height: auto;
+  }
+}
+@media all and (max-width: 576px) {
+  #lastestnews-section .container-fluid {
+    padding: 5% 0%;
+    height: auto;
+  }
+}
+#lastestnews-section .container-fluid > .card {
+  padding: 3% 20%;
+  border: none;
+  background-color: transparent;
+}
+#lastestnews-section .container-fluid > .card h2, #lastestnews-section .container-fluid > .card p {
+  text-align: center;
+}
+#lastestnews-section .container-fluid .row {
+  margin: 0%;
+}
+#lastestnews-section .container-fluid .row .col-sm-6.col-md-4 {
+  padding-top: 5%;
+}
+#lastestnews-section .container-fluid .row .col-sm-6.col-md-4 .card {
+  padding: 2%;
+  text-align: center;
+  box-shadow: 0px 0px 20px rgb(169, 169, 169);
+}
+
+@media all and (min-width: 576px) {
   #myskill-section .container-fluid {
     padding: 5% 20%;
     height: auto;
   }
-  #myskill-section .container-fluid .row .col-sm-6 h4 {
-    text-align: center;
+}
+@media all and (max-width: 576px) {
+  #myskill-section .container-fluid {
+    padding: 5% 0%;
+    height: auto;
   }
-  #myskill-section .container-fluid .row .col-sm-6 p {
-    line-height: 1.5;
-    text-align: center;
-  }
-  #myskill-section .container-fluid .row .col-sm-6 h6 {
-    display: flex;
-    justify-content: space-between;
-  }
-  #myskill-section .container-fluid .row .col-sm-6 .progress .progress-bar {
-    background: linear-gradient(90deg, #0075ff, transparent) #2196f3;
-    transition: background-color 1s;
-    color: #fff;
-  }
-  #myskill-section .container-fluid .row .col-sm-6 .progress .progress-bar:hover, #myskill-section .container-fluid .row .col-sm-6 .progress .progress-bar:focus {
-    background: #e91e63;
-  }
+}
+#myskill-section .container-fluid .row {
+  margin: 0%;
+}
+#myskill-section .container-fluid .row .col-sm-6 {
+  padding-top: 5%;
+}
+#myskill-section .container-fluid .row .col-sm-6 h4 {
+  text-align: center;
+}
+#myskill-section .container-fluid .row .col-sm-6 p {
+  line-height: 1.5;
+  text-align: center;
+}
+#myskill-section .container-fluid .row .col-sm-6 h6 {
+  display: flex;
+  justify-content: space-between;
+}
+#myskill-section .container-fluid .row .col-sm-6 .progress .progress-bar {
+  background: linear-gradient(90deg, #0075ff, transparent) #2196f3;
+  transition: background-color 1s;
+  color: #fff;
+}
+#myskill-section .container-fluid .row .col-sm-6 .progress .progress-bar:hover, #myskill-section .container-fluid .row .col-sm-6 .progress .progress-bar:focus {
+  background: #e91e63;
 }
 
 #navbarid {
@@ -98,44 +217,78 @@
 
 @media all and (min-width: 576px) {
   #portfolio-section .container-fluid {
-    padding: 0.3% 20% 0.3% 20%;
-    height: 60px;
+    padding: 5% 20%;
+    height: auto;
   }
 }
-#portfolio-section .container-fluid .card {
+@media all and (max-width: 576px) {
+  #portfolio-section .container-fluid {
+    padding: 5% 0%;
+    height: auto;
+  }
+}
+#portfolio-section .container-fluid {
+  background: #f7f7f7;
+}
+#portfolio-section .container-fluid > .card {
   padding: 2% 20%;
   border: none;
+  background: transparent;
 }
-#portfolio-section .container-fluid .card h4,
-#portfolio-section .container-fluid .card p {
+#portfolio-section .container-fluid > .card h4,
+#portfolio-section .container-fluid > .card p {
+  letter-spacing: 0.8px;
   text-align: center;
 }
-#portfolio-section .container-fluid .row {
+#portfolio-section .container-fluid .row.button-row {
+  margin: 0%;
+  padding-bottom: 2%;
   display: flex;
   justify-content: space-between;
 }
 @media (min-width: 576px) {
-  #portfolio-section .container-fluid .row {
-    padding: 0% 25%;
+  #portfolio-section .container-fluid .row.button-row {
+    padding: 2% 25%;
   }
 }
-#portfolio-section .container-fluid .row button {
+#portfolio-section .container-fluid .row.button-row button {
   width: auto;
   background: linear-gradient(90deg, #0075ff, transparent) #2196f3;
   color: #fff;
   border-radius: 15px;
   transition: background-color 1s;
 }
-#portfolio-section .container-fluid .row button:hover {
+#portfolio-section .container-fluid .row.button-row button:hover {
   background-color: #e91e63;
+}
+#portfolio-section .container-fluid .row {
+  margin: 0%;
+}
+#portfolio-section .container-fluid .row .col-sm-6.col-md-4 {
+  padding-top: 5%;
+}
+#portfolio-section .container-fluid .row .col-sm-6.col-md-4 .card {
+  box-shadow: 0px 0px 20px rgb(169, 169, 169);
+  padding: 5%;
+  background: #fff;
+}
+#portfolio-section .container-fluid .row .col-sm-6.col-md-4 .card h6, #portfolio-section .container-fluid .row .col-sm-6.col-md-4 .card p {
+  text-align: center;
+  letter-spacing: 0.8px;
 }
 
 #service-section {
-  background: #f0f0f0;
+  background: #f7f7f7;
 }
 @media all and (min-width: 576px) {
   #service-section .container-fluid {
     padding: 5% 20%;
+    height: auto;
+  }
+}
+@media all and (max-width: 576px) {
+  #service-section .container-fluid {
+    padding: 5% 0%;
     height: auto;
   }
 }
@@ -146,9 +299,12 @@
 #service-section .container-fluid p {
   line-height: 1.5;
 }
+#service-section .container-fluid .row {
+  margin: 0%;
+}
 #service-section .container-fluid .row .col-sm-6.col-md-4 {
   display: flex;
-  padding: 2%;
+  padding-top: 5%;
 }
 #service-section .container-fluid .row .col-sm-6.col-md-4 .card {
   padding: 5%;
@@ -174,22 +330,77 @@
   margin-bottom: 8%;
 }
 
+@media all and (min-width: 576px) {
+  #testimonial-section .container-fluid {
+    padding: 5% 20%;
+    height: auto;
+  }
+}
+@media all and (max-width: 576px) {
+  #testimonial-section .container-fluid {
+    padding: 5% 0%;
+    height: auto;
+  }
+}
+#testimonial-section .container-fluid > .card {
+  padding: 2% 20%;
+  border: none;
+}
+#testimonial-section .container-fluid > .card > h3, #testimonial-section .container-fluid > .card p {
+  text-align: center;
+  letter-spacing: 0.8px;
+}
+#testimonial-section .container-fluid .carousel.slide .carousel-indicators button {
+  background-color: rgb(204, 204, 204);
+}
+#testimonial-section .container-fluid .carousel.slide .carousel-indicators button.active {
+  background-color: #000;
+}
+#testimonial-section .container-fluid .carousel.slide .carousel-control-prev-icon, #testimonial-section .container-fluid .carousel.slide .carousel-control-next-icon {
+  background-color: rgb(204, 204, 204);
+}
+#testimonial-section .container-fluid .carousel.slide .carousel-control-prev-icon:hover, #testimonial-section .container-fluid .carousel.slide .carousel-control-next-icon:hover {
+  box-shadow: 0px 0px 20px #e6e6e6;
+}
+#testimonial-section .container-fluid .carousel-item .card {
+  width: 50%;
+  margin: 0% auto;
+  padding: 2%;
+}
+#testimonial-section .container-fluid .carousel-item .card img {
+  margin: 5% auto;
+  width: 20%;
+  border-radius: 100%;
+}
+#testimonial-section .container-fluid .carousel-item .card p, #testimonial-section .container-fluid .carousel-item .card h5 {
+  text-align: center;
+  letter-spacing: 0.8px;
+}
+
 #detailed-about-me {
   background: #fff;
 }
 @media all and (min-width: 576px) {
   #detailed-about-me .container-fluid {
-    padding: 0.3% 20% 0.3% 20%;
+    padding: 5% 20%;
+    height: auto;
+  }
+}
+@media all and (max-width: 576px) {
+  #detailed-about-me .container-fluid {
+    padding: 5% 0%;
     height: auto;
   }
 }
 #detailed-about-me .container-fluid {
   display: flex;
   align-items: start;
-  padding: 5% 20%;
+}
+#detailed-about-me .container-fluid .row {
+  margin: 0%;
 }
 #detailed-about-me .container-fluid .row .col-sm-6 {
-  padding: 1% 0%;
+  padding-top: 5%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -243,15 +454,18 @@
   transition: 0.5s ease;
 }
 #detailed-about-me .container-fluid .row .col-sm-6 .card .cust-button:hover {
-  box-shadow: 0px 15px 15px #00bbff;
-}
-#detailed-about-me .container-fluid .row .col-sm-6 .card .cust-button:hover span {
-  text-shadow: 0px 0px;
+  box-shadow: 0px 30px 50px #00bbff;
 }
 
 @media all and (min-width: 576px) {
   #section-counter .container-fluid {
-    padding: 2% 20%;
+    padding: 5% 20%;
+    height: auto;
+  }
+}
+@media all and (max-width: 576px) {
+  #section-counter .container-fluid {
+    padding: 5% 0%;
     height: auto;
   }
 }

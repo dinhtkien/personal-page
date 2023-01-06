@@ -1,0 +1,57 @@
+@import "./utils";
+#testimonial-section {
+    @media all and (min-width: $sm-breakpoint) {
+        .container-fluid {
+            @include getContainerFluidForMobile($padding: 5% 20%);
+        }
+    }
+    @media all and (max-width: $sm-breakpoint) {
+        .container-fluid {
+            @include getContainerFluidForMobile($padding: 5% 0%);
+        }
+    }
+    .container-fluid {
+        &>.card {
+            padding: 2% 20%;
+            border:none;
+            &>h3,p {
+                text-align: center;
+                letter-spacing: $ls;
+            }
+        }
+        .carousel.slide {
+            .carousel-indicators {
+                button {
+                    background-color: rgb(204, 204, 204);
+                }
+                button.active {
+                    background-color: #000;
+                }
+            }
+           .carousel-control-prev-icon,.carousel-control-next-icon
+           {
+            background-color: rgb(204, 204, 204);
+             &:hover {
+                @include getBoxShadow($boxshadowblur:5px, $color:#e6e6e6);
+             }
+           }
+        }
+        .carousel-item {
+            .card {
+                img {
+                    margin: 5% auto;
+                    width: 20%;
+                    border-radius: 100%;
+                }
+                width: 50%;
+                margin: 0% auto;
+                p, h5 {
+                    text-align: center;
+                    letter-spacing: $ls;
+                }
+                padding: 2%;
+            }
+        }
+
+    }
+}

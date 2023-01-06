@@ -1,0 +1,36 @@
+@import './utils';
+#lastestnews-section {
+    background:#f7f7f7;
+    @media all and (min-width: $sm-breakpoint) {
+        .container-fluid {
+            @include getContainerFluidForMobile($padding: 5% 20%);
+        }
+        
+    }
+    @media all and (max-width: $sm-breakpoint) {
+        .container-fluid {
+            @include getContainerFluidForMobile($padding: 5% 0%);
+        }
+    }
+    .container-fluid {
+        &>.card {
+            padding: 3% 20%;
+            border: none;
+            background-color: transparent;
+            h2,p {
+                text-align: center;
+            }
+        }
+        .row {
+            margin: 0%; 
+            .col-sm-6.col-md-4 {
+                padding-top:5%;
+                .card {
+                    padding:2%;
+                    text-align: center;
+                    @include getBoxShadow;
+                }
+            }
+        }
+    }
+}
