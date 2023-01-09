@@ -14,8 +14,8 @@ class NavItem {
     }
 }
 export default class NavBar {
-    private navItemList: NavItem[] = [new NavItem("Home", "#navbarid"), new NavItem("About Me", "#aboutme"), new NavItem("Services", "#"),
-    new NavItem("Portfolio", "#"), new NavItem("Blog", "#"), new NavItem("Contact", "#")];
+    private navItemList: NavItem[] = [new NavItem("Home", "#navbarid"), new NavItem("About Me", "#aboutme"), new NavItem("Services", "#service-section"),
+    new NavItem("Portfolio", "#portfolio-section"), new NavItem("Blog", "#lastestnews-section"), new NavItem("Contact", "#contact-section")];
     private generateNavItem() {
         let navItem: JSX.Element[] = this.navItemList.map((item, index) => {
             let itemName: string = item.name.toUpperCase();
