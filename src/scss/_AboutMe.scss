@@ -1,6 +1,6 @@
 @import './utils';
 
-#aboutme {
+#aboutme-section {
     background: linear-gradient(60deg, #18468a, #736c4a, #8047f3);
 
     @media all and (min-width: $sm-breakpoint) {
@@ -47,7 +47,7 @@
                 }
 
                 a:after {
-                    @include getHyperLinkStyle("after");
+                    @include getHyperLinkStyle("after", $width:0px);
                 }
 
                 a:hover:after {

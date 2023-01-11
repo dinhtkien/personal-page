@@ -1,3 +1,7 @@
+import React from "react";
+import { Container, Nav, Navbar } from "react-bootstrap";
+import NavbarBrand from "react-bootstrap/esm/NavbarBrand";
+import NavbarToggle from "react-bootstrap/esm/NavbarToggle";
 /* eslint-disable jsx-a11y/anchor-is-valid */
 class NavItem {
     private _name: string;
@@ -13,38 +17,40 @@ class NavItem {
         this._hRef = hRef;
     }
 }
-export default class NavBar {
-    private navItemList: NavItem[] = [new NavItem("Home", "#navbarid"), new NavItem("About Me", "#aboutme"), new NavItem("Services", "#service-section"),
-    new NavItem("Portfolio", "#portfolio-section"), new NavItem("Blog", "#lastestnews-section"), new NavItem("Contact", "#contact-section")];
-    private generateNavItem() {
-        let navItem: JSX.Element[] = this.navItemList.map((item, index) => {
-            let itemName: string = item.name.toUpperCase();
+export default class NavBar extends React.Component {
+    private _navItemList: NavItem[] = [new NavItem("Home", "#navbarid"), new NavItem("About Me", "#aboutme"),
+        new NavItem("Services", "#service-section"),
+        new NavItem("Portfolio", "#portfolio-section"), new NavItem("Blog", "#lastestnews-section"), 
+        new NavItem("Contact", "#contact-section")];
+
+    private _generateNavItem() {
+        let navItem: JSX.Element[] = this._navItemList.map(item => {
             return (
-                <li className="nav-item ">
-                    <a className={"nav-link text-light " + ((index===0)?"active":"")}  aria-current="page" href={item.hRef}>{itemName}</a>
-                </li>
+                <Nav.Link href={item.hRef} className="text-light">
+                    {item.name.toUpperCase()}
+                </Nav.Link>
             );
         });
         return navItem;
     }
-    public getNavBarContent() {
+    public render() {
         return (
-            <section id="navbarid">
-                <nav className="navbar navbar-expand-lg">
-                    <div className="container-fluid">
-                        <a className="navbar-brand fw-bold text-light fs-5" href="#"><span className="">Kien</span></a>
-                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span className="navbar-toggler-icon"></span>
-                        </button>
-                        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-                                {this.generateNavItem()}
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
+            <section id="navbar-section">
+                <Navbar expand={"lg"}>
+                    <Container fluid>
+                        <NavbarBrand href="#aboutme-section" className="fw-bold text-light fs-5">
+                            <span className="">Kien</span>
+                        </NavbarBrand>
+                        <NavbarToggle aria-controls="navbarSupportedContent">
+                        </NavbarToggle>
+                        <Navbar.Collapse id="navbarSupportedContent"> 
+                            <Nav className="ms-auto mb-2 mb-lg-0"> 
+                                {this._generateNavItem()}
+                            </Nav>
+                        </Navbar.Collapse>
+                    </Container>
+                </Navbar>
             </section>
-
         )
     }
 }

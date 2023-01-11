@@ -6,7 +6,7 @@ $ls: 0.8px;
     padding: $padding;
     height: $height;
 }
-@mixin getHyperLinkStyle($aType: "hoverafter", $color:#588bab) {
+@mixin getHyperLinkStyle($aType: "hoverafter", $color:#588bab, $width:10px) {
     @if $aType == "vistedandactive" {
         -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
@@ -28,7 +28,7 @@ $ls: 0.8px;
         height: 5px;
         bottom: -0.25em;
         left: 0;
-        width: 10px;
+        width: $width;
         background: #34bcd7;
     }
     @else {

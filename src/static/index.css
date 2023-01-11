@@ -1,45 +1,45 @@
-#aboutme {
+#aboutme-section {
   background: linear-gradient(60deg, #18468a, #736c4a, #8047f3);
 }
 @media all and (min-width: 576px) {
-  #aboutme .container-fluid {
+  #aboutme-section .container-fluid {
     padding: 5% 20%;
     height: 120vh;
   }
 }
 @media all and (max-width: 576px) {
-  #aboutme .container-fluid {
+  #aboutme-section .container-fluid {
     padding: 5% 0%;
     height: auto;
   }
 }
-#aboutme .container-fluid {
+#aboutme-section .container-fluid {
   display: flex;
 }
-#aboutme .container-fluid .row {
+#aboutme-section .container-fluid .row {
   margin: 0%;
   overflow: hidden;
   justify-content: center;
 }
-#aboutme .container-fluid .row .col-sm-6 {
+#aboutme-section .container-fluid .row .col-sm-6 {
   padding-top: 5%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-#aboutme .container-fluid .row .col-sm-6 .card {
+#aboutme-section .container-fluid .row .col-sm-6 .card {
   background: transparent;
   border-width: 0px 0px 0px 5px;
   border-radius: 0%;
   border-left-color: #0079ff;
 }
-#aboutme .container-fluid .row .col-sm-6 img {
+#aboutme-section .container-fluid .row .col-sm-6 img {
   opacity: 0.2;
   width: 90%;
 }
-#aboutme .container-fluid .row .col-sm-6 a,
-#aboutme .container-fluid .row .col-sm-6 a:visited,
-#aboutme .container-fluid .row .col-sm-6 a:active {
+#aboutme-section .container-fluid .row .col-sm-6 a,
+#aboutme-section .container-fluid .row .col-sm-6 a:visited,
+#aboutme-section .container-fluid .row .col-sm-6 a:active {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   position: relative;
@@ -47,11 +47,11 @@
   color: rgb(255, 255, 255);
   font-size: 1.1em;
 }
-#aboutme .container-fluid .row .col-sm-6 a:hover {
+#aboutme-section .container-fluid .row .col-sm-6 a:hover {
   color: #34bcd7;
   transition: 0.5s ease;
 }
-#aboutme .container-fluid .row .col-sm-6 a:after {
+#aboutme-section .container-fluid .row .col-sm-6 a:after {
   content: "";
   transition: 0.5s ease;
   -webkit-backface-visibility: hidden;
@@ -60,10 +60,10 @@
   height: 5px;
   bottom: -0.25em;
   left: 0;
-  width: 10px;
+  width: 0px;
   background: #34bcd7;
 }
-#aboutme .container-fluid .row .col-sm-6 a:hover:after {
+#aboutme-section .container-fluid .row .col-sm-6 a:hover:after {
   width: 100%;
 }
 
@@ -200,16 +200,16 @@
   background: #e91e63;
 }
 
-#navbarid {
+#navbar-section {
   background: linear-gradient(to right, #6f2cf3, #8047f3);
 }
 @media all and (min-width: 576px) {
-  #navbarid .container-fluid {
+  #navbar-section .container-fluid {
     padding: 0.3% 20% 0.3% 20%;
     height: 60px;
   }
 }
-#navbarid .nav-link:hover {
+#navbar-section .nav-link:hover {
   transition: 0.25s ease;
   transition: 0.25s ease;
   text-shadow: 0.1px 0.1px 1.5px #fff, -0.1px 0.1px 1.5px #fff, -0.1px -0.1px 1.5px #fff, 0.1px -0.1px 1.5px #fff;
@@ -458,26 +458,26 @@
 }
 
 @media all and (min-width: 576px) {
-  #section-counter .container-fluid {
+  #counter-section .container-fluid {
     padding: 5% 20%;
     height: auto;
   }
 }
 @media all and (max-width: 576px) {
-  #section-counter .container-fluid {
+  #counter-section .container-fluid {
     padding: 5% 0%;
     height: auto;
   }
 }
-#section-counter .container-fluid {
+#counter-section .container-fluid {
   padding: 5% 20%;
   background: transparent;
 }
-#section-counter .container-fluid .row.row-1 {
+#counter-section .container-fluid .row {
   background: #fff;
   box-shadow: 0px 0px 20px rgb(169, 169, 169);
 }
-#section-counter .container-fluid .row.row-1 .col-sm-6.col-md-3 {
+#counter-section .container-fluid .row .col-sm-6.col-md-3 {
   padding: 5%;
   display: flex;
   flex-direction: column;

@@ -1,6 +1,6 @@
 @import './utils';
 
-#section-counter {
+#counter-section {
     @media all and (min-width: $sm-breakpoint) {
         .container-fluid {
                 @include getContainerFluidForMobile(auto, 5% 20%);
@@ -14,7 +14,7 @@
     .container-fluid {
         padding: 5% 20%;
         background: transparent;
-        .row.row-1 {
+        .row {
             .col-sm-6.col-md-3 {
                 padding: 5%;
                 display: flex;

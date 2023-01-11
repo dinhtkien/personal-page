@@ -9,11 +9,6 @@ import Testimonial from './Components/Testimonial';
 import Contact from './Components/Contact';
 import LastestNews from './Components/LastestNews';
 function App() {
-  let navbar = new NavBar();
-  let aboutMe = new AboutMe();
-  let detailedAboutMe = new DetailedAboutme();
-  let sectionCounter = new SectionCounter();
-  let services = new Services();
   let mySkills = new MySkills();
   let portfolio = new Portfolio();
   let testimonial = new Testimonial();
@@ -21,11 +16,11 @@ function App() {
   let contact = new Contact();
   return (
     <>
-      {navbar.getNavBarContent()}
-      {aboutMe.getAbouMeContent()}
-      {detailedAboutMe.getDetailedAboutMeContent()}
-      {sectionCounter.getSectionCounterContent()}
-      {services.getServicesContent()}
+      <NavBar />
+      <AboutMe />
+      <DetailedAboutme />
+      <SectionCounter />
+      <Services unusedText = {""}/>
       {mySkills.getMySkillsContents()}
       {portfolio.getPortfolioContents()}
       {testimonial.getTestimonialContents()}

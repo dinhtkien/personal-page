@@ -1,28 +1,78 @@
-export default class SectionCounter {
-    public getSectionCounterContent() {
+import React from 'react';
+import axios from 'axios';
+import { Row, Col, Container } from 'react-bootstrap';
+interface ColCountProps {
+    colText: string;
+}
+interface colCountState {
+    colNumber: number;
+}
+interface AxiosResponse {
+    randomNumber: number;
+}
+export default class SectionCounter extends React.Component {
+    public render() {
         return (
-            <section id="section-counter">
-                <div className="container-fluid">
-                    <div className="row row-1">
-                        <div className="col-sm-6 col-md-3">
-                            <h6 className="text-center">HAPPY CLIENTS</h6>
-                            <h2 className="text-center fw-bold">{Math.round(Math.random() * 500)}</h2>
-                        </div>
-                        <div className="col-sm-6 col-md-3">
-                            <h6 className="text-center">TELEPHONIC TALK</h6>
-                            <h2 className="text-center fw-bold">{Math.round(Math.random() * 500)}</h2>
-                        </div>
-                        <div className="col-sm-6 col-md-3">
-                            <h6 className="text-center">PHOTO CAPTURE</h6>
-                            <h2 className="text-center fw-bold">{Math.round(Math.random() * 500)}</h2>
-                        </div>
-                        <div className="col-sm-6 col-md-3">
-                            <h6 className="text-center">PROJECT</h6>
-                            <h2 className="text-center fw-bold">{Math.round(Math.random() * 500)}</h2>
-                        </div>
-                    </div>
-                </div>
+            <section id="counter-section">
+                <Container fluid >
+                    <Row>
+                        <ColCount
+                            colText={"HAPPY CLIENTS"}
+                        />
+                        <ColCount
+                            colText={"TELEPHONIC TALK"}
+                        />
+                        <ColCount
+                            colText={"PHOTO CAPTURE"}
+                        />
+                        <ColCount
+                            colText={"PROJECT"}
+                        />
+                    </Row>
+                </Container>
             </section>
+
+        );
+    }
+}
+class ColCount extends React.Component<ColCountProps, colCountState> {
+    state: colCountState = { colNumber: 0 };
+    constructor(props: ColCountProps) {
+        super(props);
+        setInterval(() => {
+            axios.get<AxiosResponse[]>("http://www.randomnumberapi.com/api/v1.0/random?", {
+                params: {
+                    min: 0,
+                    max: 500
+                }
+            }).then((response) => {
+                this.setState(prevState => {
+                    let local: any = prevState;
+                    return { ...local, colNumber: response.data[0] }
+                });
+            })
+        }, 5000);
+    }
+    componentDidMount(): void {
+        axios.get<AxiosResponse[]>("http://www.randomnumberapi.com/api/v1.0/random?", {
+            params: {
+                min: 0,
+                max: 500
+            }
+        }).then((response) => {
+
+            this.setState(prevState => {
+                let local: any = prevState;
+                return { ...local, colNumber: response.data[0] }
+            });
+        })
+    }
+    public render() {
+        return (
+            <Col sm={6} md={3}>
+                <h6 className="text-center">{this.props.colText}</h6>
+                <h2 className="text-center fw-bold">{this.state.colNumber}</h2>
+            </Col>
         );
     }
 }
