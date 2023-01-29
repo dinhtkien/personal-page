@@ -8,20 +8,21 @@ import Portfolio from './Components/Portfolio';
 import Testimonial from './Components/Testimonial';
 import Contact from './Components/Contact';
 import LastestNews from './Components/LastestNews';
+import React from 'react';
 function App() {
-  let mySkills = new MySkills();
   let portfolio = new Portfolio();
   let testimonial = new Testimonial();
   let lastestnews = new LastestNews();
   let contact = new Contact();
+  console.log("App is re-render!");
   return (
     <>
       <NavBar />
       <AboutMe />
       <DetailedAboutme />
       <SectionCounter />
-      <Services unusedText = {""}/>
-      {mySkills.getMySkillsContents()}
+      <Services />
+      <MySkills />
       {portfolio.getPortfolioContents()}
       {testimonial.getTestimonialContents()}
       {lastestnews.getLastestNewContents()}

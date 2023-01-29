@@ -6,91 +6,84 @@ interface ServicesProps {
     unusedText: string;
 }
 interface ServicesState {
-    myServiceText: string,
+    myServiceText: string[],
     isMyCardReady: boolean,
 }
 interface myServiceCardProps {
     iClassname: string,
     h5Text: string,
-}
-interface myServiceCardState {
     pText: string,
 }
-class MyServiceCard extends React.Component<myServiceCardProps, myServiceCardState> {
-    state: myServiceCardState = { pText: "" };
-    componentDidMount(): void {
-        axios.get("https://baconipsum.com/api/?type=meat-and-filler", {
-            params: {
-                type: "meat-and-filler",
-                paras: 1,
-            }
-        })
-            .then((response) => {
-                this.setState(prevState => {
-                    return ({
-                        ...prevState,
-                        pText: response.data,
-                    })
-                })
-            })
-    }
+class MyServiceCard extends React.Component<myServiceCardProps> {
     public render() {
         return (
             <Col sm={6} md={4}>
                 <Card>
                     <i className={this.props.iClassname}></i>
                     <h5>{this.props.h5Text}</h5>
-                    <p>{this.state.pText}</p>
+                    <p>{this.props.pText}</p>
                 </Card>
             </Col>
         );
     }
-
 }
-export default class Services extends React.Component<ServicesProps, ServicesState> {
-    state: ServicesState = { myServiceText: "", isMyCardReady:false };
-    private _cardContentJSX:JSX.Element[] | undefined;
+export default class Services extends React.Component<{},string[]> {
+    public constructor(props:any) {
+        super(props);
+        this.state = ["", "", "", "", "", ""];
+    }
     componentDidMount(): void {
         axios.get("https://baconipsum.com/api/?type=meat-and-filler", {
             params: {
                 type: "meat-and-filler",
-                paras: 1,
+                paras: 6,
             }
         })
             .then((response) => {
-                this.setState(prevState => {
-                    return ({
-                        ...prevState,
-                        myServiceText: response.data,
-                    })
-                })
+                this.setState(response.data);
             })
-        let cardContents: myServiceCardProps[] = [
-            { h5Text: "Development", iClassname: "fa-brands fa-connectdevelop" },
-            { h5Text: "Graphic", iClassname: "fa-solid fa-image" },
-            { h5Text: "Web Design", iClassname: "fa-solid fa-pen-clip" },
-            { h5Text: "Photography", iClassname: "fa-solid fa-photo-film" },
-            { h5Text: "Optimization", iClassname: "fa-solid fa-diagram-predecessor" },
-            { h5Text: "Mobile", iClassname: "fa-solid fa-mobile" }];
-        this._cardContentJSX = cardContents.map(cardContent => {
-            return (
-                <MyServiceCard
-                    h5Text={cardContent.h5Text}
-                    iClassname={cardContent.iClassname}
-                />
-            );
-        })
     }
+    
     public render() {
         return (
             <section id="service-section">
                 <Container fluid>
                     <h1 className="text-center">My Services</h1>
                     <p className="text-center fs-6">
-                        {this.state.myServiceText}
                     </p>
                     <Row>
-                        {this._cardContentJSX}
+                        <MyServiceCard
+                            h5Text={"Development"}
+                            iClassname={"fa-brands fa-connectdevelop"}
+                            pText={this.state[0]}
+                        />
+                        <MyServiceCard
+                            h5Text={"Graphic"}
+                            iClassname={"fa-solid fa-image"}
+                            pText={this.state[1]}
+                        />
+                        <MyServiceCard
+                            h5Text={"Web Design"}
+                            iClassname={"fa-solid fa-pen-clip"}
+                            pText={this.state[2]}
+                        />
+                    </Row>
+                    <Row>
+                        <MyServiceCard
+                            h5Text={"Photography"}
+                            iClassname={"fa-solid fa-photo-film"}
+                            pText={this.state[3]}
+                        />
+                        <MyServiceCard
+                            h5Text={"Optimization"}
+                            iClassname={"fa-solid fa-diagram-predecessor"}
+                            pText={this.state[4]}
+                        />
+                        <MyServiceCard
+                            h5Text={"Mobile"}
+                            iClassname={"fa-solid fa-mobile"}
+                            pText={this.state[5]}
+                        />
                     </Row>
                 </Container>
             </section>

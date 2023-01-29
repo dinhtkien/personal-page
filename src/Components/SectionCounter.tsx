@@ -1,16 +1,39 @@
-import React from 'react';
 import axios from 'axios';
+import React from 'react';
 import { Row, Col, Container } from 'react-bootstrap';
 interface ColCountProps {
+    colNumber: number;
     colText: string;
 }
-interface colCountState {
-    colNumber: number;
+interface sCStateType {
+    numberArray:number[],
 }
-interface AxiosResponse {
-    randomNumber: number;
-}
-export default class SectionCounter extends React.Component {
+export default class SectionCounter extends React.Component<{},number[]> {
+    public constructor(props:any) {
+        super(props);
+        this.state = [0,0,0,0];
+    }
+    public componentDidMount(): void {
+        console.log("Section counter is re-render");
+        axios.get<string>("https://www.random.org/integers/?", {
+            params: {
+                min: 1,
+                max: 200,
+                num: 4,
+                col: 4,
+                format: "plain",
+                rnd: "new",
+                base: "10",
+            }
+        }).then((response) => {
+            let regex = new RegExp(/\d{1,3}/g);
+            if (regex.test(response.data)) {
+                let randomNumber: number[] | undefined = response.data.match(regex)?.map(item => Number(item));
+                if (typeof randomNumber === "undefined") return;
+                this.setState(randomNumber);
+            }
+        })
+    }
     public render() {
         return (
             <section id="counter-section">
@@ -18,15 +41,19 @@ export default class SectionCounter extends React.Component {
                     <Row>
                         <ColCount
                             colText={"HAPPY CLIENTS"}
+                            colNumber={this.state[0]}
                         />
                         <ColCount
                             colText={"TELEPHONIC TALK"}
+                            colNumber={this.state[1]}
                         />
                         <ColCount
                             colText={"PHOTO CAPTURE"}
+                            colNumber={this.state[2]}
                         />
                         <ColCount
                             colText={"PROJECT"}
+                            colNumber={this.state[3]}
                         />
                     </Row>
                 </Container>
@@ -35,43 +62,12 @@ export default class SectionCounter extends React.Component {
         );
     }
 }
-class ColCount extends React.Component<ColCountProps, colCountState> {
-    state: colCountState = { colNumber: 0 };
-    constructor(props: ColCountProps) {
-        super(props);
-        setInterval(() => {
-            axios.get<AxiosResponse[]>("http://www.randomnumberapi.com/api/v1.0/random?", {
-                params: {
-                    min: 0,
-                    max: 500
-                }
-            }).then((response) => {
-                this.setState(prevState => {
-                    let local: any = prevState;
-                    return { ...local, colNumber: response.data[0] }
-                });
-            })
-        }, 5000);
-    }
-    componentDidMount(): void {
-        axios.get<AxiosResponse[]>("http://www.randomnumberapi.com/api/v1.0/random?", {
-            params: {
-                min: 0,
-                max: 500
-            }
-        }).then((response) => {
-
-            this.setState(prevState => {
-                let local: any = prevState;
-                return { ...local, colNumber: response.data[0] }
-            });
-        })
-    }
+class ColCount extends React.Component<ColCountProps> {
     public render() {
         return (
             <Col sm={6} md={3}>
                 <h6 className="text-center">{this.props.colText}</h6>
-                <h2 className="text-center fw-bold">{this.state.colNumber}</h2>
+                <h2 className="text-center fw-bold">{this.props.colNumber}</h2>
             </Col>
         );
     }
